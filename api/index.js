@@ -44,7 +44,7 @@ app.get('/device/:status', async function(req, res) {
     try {
         const { status } = req.params;
         // Possible states: on, off, toggle.
-        const set = await connection.setDevicePowerState('100118053a', status);
+        const set = await connection.setDevicePowerState('device_id', status);
         console.log(set);
         return res.json(set);
     } catch (e) {
