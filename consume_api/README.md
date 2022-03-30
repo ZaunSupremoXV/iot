@@ -25,6 +25,13 @@ flutter pub get
 ```
 
 
+## ☕ Configurando consume_api
+
+### Para configurar o app, siga estas etapas:
+
+No Arquivo `lib/app/repositories/device_repository.dart` nas linhas 13 e 20, alterede de `localhost` para o `IP` do server da API.
+
+
 ## ☕ Usando consume_api
 
 ### Para usar o app, siga estas etapas:

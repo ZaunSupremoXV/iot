@@ -25,6 +25,17 @@ npm install
 ```
 
 
+## ☕ Configurando api
+
+### Para configurar o projeto, siga estas etapas:
+
+Insira as informações necessarias de `email` e `password` no arquivo index.js
+
+Insira a informação `device_id` no arquivo index.js
+
+> OBS: O device_id você pode obter na rota `localhost:3000/device_state`.
+
+
 ## ☕ Usando api
 
 ### Para usar o projeto, siga estas etapas:
