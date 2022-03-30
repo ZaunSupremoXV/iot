@@ -1,3 +1,4 @@
+import 'package:consume_api/app/app_theme.dart';
 import 'package:consume_api/app/models/device_model.dart';
 import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
 import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
@@ -31,13 +32,14 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    const backgroundColor = Color(0xFFE7ECEF);
     Offset distance = isPressed ? const Offset(10, 10) : const Offset(28, 28);
     double blur = isPressed ? 5.0 : 30.0;
     return ValueListenableBuilder<bool>(
       valueListenable: AppController.instance.themeSwitch,
       builder: (context, isDark, child) {
         return Scaffold(
+          backgroundColor:
+              isDark ? const Color(0xFF2E3239) : const Color(0xFFE7ECEF),
           appBar: AppBar(
             toolbarHeight: 100,
             flexibleSpace: Image.asset(
@@ -65,18 +67,22 @@ class _HomePageState extends State<HomePage> {
                 duration: const Duration(milliseconds: 100),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
-                  color: backgroundColor,
+                  color: isDark
+                      ? const Color(0xFF2E3239)
+                      : const Color(0xFFE7ECEF),
                   boxShadow: [
                     BoxShadow(
                       blurRadius: blur,
                       offset: -distance,
-                      color: Colors.white,
+                      color:
+                          isDark ? AppTheme.shadow1Dark : AppTheme.shadow1Light,
                       inset: isPressed,
                     ),
                     BoxShadow(
                       blurRadius: blur,
                       offset: distance,
-                      color: const Color(0xFFA7A9AF),
+                      color:
+                          isDark ? AppTheme.shadow2Dark : AppTheme.shadow2Light,
                       inset: isPressed,
                     ),
                   ],
@@ -88,7 +94,7 @@ class _HomePageState extends State<HomePage> {
                       ? const Icon(
                           Icons.lightbulb_outline,
                           size: 55,
-                          color: Colors.yellow,
+                          color: Color.fromARGB(255, 28, 216, 197),
                         )
                       : const Icon(
                           Icons.lightbulb_outline,

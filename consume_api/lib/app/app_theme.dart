@@ -27,4 +27,9 @@ class AppTheme {
 
   static const primaryColorDark = Colors.blue;
   static const primaryColorLight = Color(0xFFF27244);
+
+  static const shadow1Light = Colors.white;
+  static const shadow2Light = Color(0xFFA7A9AF);
+  static const shadow1Dark = Color(0xFF35393F);
+  static const shadow2Dark = Color.fromARGB(255, 19, 29, 23);
 }
