@@ -28,19 +28,6 @@ class _HomePageState extends State<HomePage> {
   bool isLoading = false;
   bool isPressed = false;
   String name = '';
-  DeviceModel deviceModel = DeviceModel();
-
-  init() async {
-    deviceModel = await controller.getGetState();
-    setState(() {
-      isLoading = true;
-      if (deviceModel.state == "off") {
-        isPressed = false;
-      } else {
-        isPressed = true;
-      }
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,18 +39,6 @@ class _HomePageState extends State<HomePage> {
       builder: (context, isDark, child) {
         return Scaffold(
           appBar: AppBar(
-            title: Card(
-              child: TextFormField(
-                decoration: const InputDecoration(
-                  hintText: ' Procurar...',
-                ),
-                onChanged: (val) {
-                  setState(() {
-                    name = val;
-                  });
-                },
-              ),
-            ),
             toolbarHeight: 100,
             flexibleSpace: Image.asset(
               isDark ? "assets/images/night.jpg" : "assets/images/light.jpg",
@@ -71,11 +46,6 @@ class _HomePageState extends State<HomePage> {
             ),
             backgroundColor: Colors.transparent,
             actions: [
-              IconButton(
-                  onPressed: () {
-                    init();
-                  },
-                  icon: const Icon(FontAwesomeIcons.search)),
               CustomSwitchWidget(),
             ],
           ),
@@ -85,9 +55,9 @@ class _HomePageState extends State<HomePage> {
                 setState(() {
                   isPressed = !isPressed;
                   if (isPressed == true) {
-                    controller.getSetState("off");
-                  } else {
                     controller.getSetState("on");
+                  } else {
+                    controller.getSetState("off");
                   }
                 });
               },
