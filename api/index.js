@@ -32,7 +32,7 @@ app.get('/devices', async function(req, res) {
 
 app.get('/device_state', async function(req, res) {
     try {
-        const status = await connection.getDevicePowerState('100118053a');
+        const status = await connection.getDevicePowerState('device_id');
         console.log(status);
         return res.json(status);
     } catch (e) {
